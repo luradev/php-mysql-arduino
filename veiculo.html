@@ -1,0 +1,159 @@
+<?php
+	require_once("controller/condutorController.php");
+	$bean = new CondutorController();
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Veículo</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Card-Carousel-1.css">
+    <link rel="stylesheet" href="assets/css/Card-Carousel.css">
+    <link rel="stylesheet" href="assets/css/Highlight-Clean.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/Simple-Slider.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-white portfolio-navbar gradient">
+        <div class="container"><a class="navbar-brand logo" href="index.html">Accident-Track</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="veiculo.html">Registrar Veículo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="condutor.html">Registrar Condutor</a></li>
+                    <li class="nav-item"><a class="nav-link" href="acidentes.html">Acidentes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page hire-me-page">
+        <section class="portfolio-block hire-me">
+            <div class="container">
+                <div class="heading">
+                    <h2>REGISTRAR VEÍCULO</h2>
+                </div>
+                <form method="post" action="controller/veiculoController.php?action=salvar">
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-md-6"><label class="form-label" for="hire-date">Marca</label><select class="form-select" name="marca" id="marca">
+                                    <optgroup label="Selecione a marca">
+                                        <option value="Toyota" selected="">Toyota</option>
+                                        <option value="Nissan">Nissan</option>
+                                        <option value="Ford">Ford</option>
+                                    </optgroup>
+                                </select></div>
+                            <div class="col-md-6 button"><label class="form-label">Modelo</label><select class="form-select" name="modelo" id="modelo">
+                                    <optgroup label="Selecione o modelo">
+                                        <option value="Rav-4" selected="">Rav-4</option>
+                                        <option value="Patrol">Patrol</option>
+                                        <option value="F-150">F-150</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                    </div>
+                    <div class="mb-3"><label class="form-label" for="email">Matrícula</label><input class="form-control" type="text" name="matricula" id="matricula"></div>
+                    <div class="mb-3"><label class="form-label" for="email">Nº do Motor</label><input class="form-control" type="text" name="num_motor" id="num_motor"></div>
+                    <div class="mb-3"><label class="form-label" for="email">Nº do Quadro</label><input class="form-control" type="text" name="num_quadro" id="num_quadro"></div>
+                    <div class="mb-3"><label class="form-label" for="email">Cor</label><select class="form-select" name="cor" id="cor">
+                            <optgroup label="Selecione a cor">
+                                <option value="Laranja" selected="">Laranja</option>
+                                <option value="Azul">Azul</option>                                
+                            </optgroup>
+                        </select></div>
+                    <div class="mb-3"><label class="form-label" for="email">Condutor</label><select class="form-select" name="condutor" id="condutor">
+                            <optgroup label="Selecione o condutor">
+                                <!-- <option value="1" selected="">João</option> -->                                
+							<?php 
+								$condutores = $bean->listar();
+								foreach ($condutores as $condutor) : ?>
+									<option value="2">Fernando</option>
+                            <?php endforeach; ?>
+                            </optgroup>
+                        </select></div>
+                    <!--
+					<div class="mb-3">
+                        <div class="row">
+                            <div class="col-md-6"><label class="form-label" for="hire-date">Medidas dos Pneumáticos</label><input class="form-control" type="text" id="medida_pneu"></div>
+                            <div class="col-md-6 button"><label class="form-label">Cilindrada</label><input class="form-control" type="text" id="cilindrada"></div>
+                        </div>
+                    </div>
+					<!--
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-md-6"><label class="form-label" for="hire-date">Serviço</label><select class="form-select" id="servico">
+                                    <optgroup label="Selecione o serviço">
+                                        <option value="12" selected="">Particular</option>                                        
+                                    </optgroup>
+                                </select></div>
+                            <div class="col-md-6 button"><label class="form-label">Nº de Cilindros</label><input class="form-control" type="text" id="num_cilindro"></div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-md-6"><label class="form-label" for="hire-date">Peso Bruto</label><input class="form-control" type="text" id="peso_bruto"></div>
+                            <div class="col-md-6 button"><label class="form-label">Tara</label><input class="form-control" type="text" id="tara"></div>
+                        </div>
+                    </div>
+					
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-md-6"><label class="form-label" for="hire-date">Tipo de Caixa</label><select class="form-select" id="tipo_caixa">
+                                    <optgroup label="This is a group">
+                                        <option value="12" selected="">Fechada</option>
+                                        <option value="13">Aberta</option>                                        
+                                    </optgroup>
+                                </select></div>
+                            <div class="col-md-6 button"><label class="form-label">Distância entre Eixos</label><input class="form-control" type="text" id="distancia_eixos"></div>
+                        </div>
+                    </div>
+					-->
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-md-6"><label class="form-label" for="hire-date">Combustível</label><select class="form-select" name="combustivel" id="combustivel">
+                                    <optgroup label="Selecione o combustível">
+                                        <option value="Gasolina" selected="">Gasolina</option>
+                                        <option value="Gasóleo">Gasóleo</option>                                        
+                                    </optgroup>
+                                </select></div>
+                            <div class="col-md-6 button"><label class="form-label">Lotação</label><input class="form-control" type="text" name="lotacao" id="lotacao"></div>
+                        </div>
+                    </div>
+                    <!--
+					<div class="mb-3"><label class="form-label" for="message">Data de Emissão</label><input class="form-control" id="data_emissao" type="date"></div>
+                    -->
+					<div class="mb-3">
+                        <div class="row">
+                            <div class="col"><button class="btn btn-primary d-block w-100" id="btn_salvar" type="submit">Salvar</button></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer" style="background: var(--bs-dark);">
+        <div class="container">
+            <div class="links"><a href="#" style="color: var(--bs-white);">Quem somos</a><a href="#" style="color: var(--bs-white);">Contactos</a><a href="#" style="color: var(--bs-white);">Projetos</a></div>
+            <div class="social-icons"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-instagram-outline"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a></div>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/Card-Carousel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="assets/js/Simple-Slider.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
