@@ -3,10 +3,12 @@
 	require_once("controller/condutorController.php");
 	require_once("controller/marcaController.php");
 	require_once("controller/corController.php");
+    require_once("controller/veiculoController.php");
 	
 	$ct_marca = new MarcaController();
 	$ct_condutor = new CondutorController();
 	$ct_cor = new CorController();
+    $ct_veiculo = new VeiculoController();
 ?>
 
 
@@ -16,7 +18,10 @@
                 <div class="heading">
                     <h2>EDITAR VEÍCULO</h2>
                 </div>
-                <form method="post" action="controller/veiculoController.php?action=salvar">
+
+                <?php $veiculo = $ct_veiculo->getByPk($_GET['pkVeiculo']); ?>
+
+                <form method="post" action="controller/veiculoController.php?action=update">
                     <div class="mb-3">
                         <div class="row">
                             <div class="col-md-6"><label class="form-label" for="hire-date">Marca</label>
@@ -39,9 +44,9 @@
 							</div>
                         </div>
                     </div>
-                    <div class="mb-3"><label class="form-label" for="matricula">Matrícula</label><input class="form-control" type="text" name="matricula" id="matricula"></div>
-                    <div class="mb-3"><label class="form-label" for="num_motor">Nº do Motor</label><input class="form-control" type="text" name="num_motor" id="num_motor"></div>
-                    <div class="mb-3"><label class="form-label" for="num_quadro">Nº do Quadro</label><input class="form-control" type="text" name="num_quadro" id="num_quadro"></div>
+                    <div class="mb-3"><label class="form-label" for="matricula">Matrícula</label><input value="<?php echo $veiculo['matricula'] ?>" class="form-control" type="text" name="matricula" id="matricula"></div>
+                    <div class="mb-3"><label class="form-label" for="num_motor">Nº do Motor</label><input value="<?php echo $veiculo['num_motor'] ?>" class="form-control" type="text" name="num_motor" id="num_motor"></div>
+                    <div class="mb-3"><label class="form-label" for="num_quadro">Nº do Quadro</label><input value="<?php echo $veiculo['num_motor'] ?>" class="form-control" type="text" name="num_quadro" id="num_quadro"></div>
                     <div class="mb-3"><label class="form-label" for="cor">Cor</label><select class="form-select" name="cor" id="cor">
                             <optgroup label="Selecione a cor">
 							<?php
@@ -70,7 +75,7 @@
                                         <option value="Gasóleo">Gasóleo</option>                                        
                                     </optgroup>
                                 </select></div>
-                            <div class="col-md-6 button"><label class="form-label">Lotação</label><input class="form-control" type="text" name="lotacao" id="lotacao"></div>
+                            <div class="col-md-6 button"><label class="form-label">Lotação</label><input value="<?php echo $veiculo['lotacao'] ?>" class="form-control" type="text" name="lotacao" id="lotacao"></div>
                         </div>
                     </div>
                     <!--

@@ -69,7 +69,7 @@ class VeiculoController {
     }
 
     public function getByPk($id) {
-        $result = $this->condutorDao->getByPk($id);
+        $result = $this->veiculoDao->getByPk($id);
         return $result;
     }
 

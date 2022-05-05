@@ -79,13 +79,31 @@ class VeiculoDAO {
         else return false;
     }
 
-    public function getById($id) {
-        $query = $this->mysqli->query("SELECT * FROM condutor WHERE pk_condutor = ".$id.";");
+    /*
+    public function getByPk($id) {
+        $sql = "SELECT ve.pk_veiculo, mo.nome as modelo, ve.matricula, ve.cor, ve.lotacao, co.nome as condutor_nome
+        from veiculo ve
+        INNER JOIN condutor co
+        ON ve.fk_condutor = co.pk_condutor
+        INNER JOIN modelo mo
+        ON ve.fk_modelo = mo.pk_modelo";
+
+        $query = $this->mysqli->query($sql);
+        while ($row = $query->fetch_assoc()) {
+           $result[] = $row;
+        }
+        return $result;
+    }*/
+
+    
+    public function getByPk($id) {
+        $query = $this->mysqli->query("SELECT * FROM veiculo WHERE pk_veiculo = ".$id.";");
         if($query->num_rows == 0) 
 			return false;
         else 
 			return $query->fetch_assoc();
     }
+    
 }
 
 ?>
