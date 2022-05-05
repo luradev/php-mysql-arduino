@@ -12,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
     <script src="assets/js/Simple-Slider.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>

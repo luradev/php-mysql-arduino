@@ -65,7 +65,7 @@ class VeiculoController {
 
     public function deletar($id) {
         $this->veiculoDao->deletar($id);
-        echo "<script>alert('Registro deletado com sucesso!');document.location='list-veiculos.php'</script>";
+        echo "<script>alert('Registro deletado com sucesso!');document.location='veiculos.php'</script>";
     }
 
     public function getByPk($id) {

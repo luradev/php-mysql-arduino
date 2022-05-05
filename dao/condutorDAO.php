@@ -39,8 +39,7 @@ class CondutorDAO {
             $data_nascimento = $condutor->getDataNascimento();
             $num_bi = $condutor->getNumBI();
             $sexo = $condutor->getSexo();
-            $id = $condutor->getPk();
-            echo $id . '';
+            $id = $condutor->getPk();            
             $stmt->bind_param('ssssi', $nome, $data_nascimento, $num_bi, $sexo, $id);
             return $stmt->execute();
         }
