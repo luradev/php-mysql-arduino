@@ -71,8 +71,8 @@
                         <div class="row">
                             <div class="col-md-6"><label class="form-label" for="hire-date">Combustível</label><select class="form-select" name="combustivel" id="combustivel">
                                     <optgroup label="Selecione o combustível">
-                                        <option value="Gasolina" selected="">Gasolina</option>
-                                        <option value="Gasóleo">Gasóleo</option>                                        
+                                        <option value="Gasolina" <?php if($veiculo['combustivel'] == 'Gasolina'){ echo 'selected'; } ?> >Gasolina</option>
+                                        <option value="Gasóleo" <?php if($veiculo['combustivel'] == 'Gasóleo'){ echo 'selected'; } ?> >Gasóleo</option>                                        
                                     </optgroup>
                                 </select></div>
                             <div class="col-md-6 button"><label class="form-label">Lotação</label><input value="<?php echo $veiculo['lotacao'] ?>" class="form-control" type="text" name="lotacao" id="lotacao"></div>
