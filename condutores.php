@@ -1,5 +1,4 @@
 <?php
-/* @var Database $db */
 require "header.php";
 
 require_once("controller/condutorController.php");
@@ -15,7 +14,7 @@ $bean = new CondutorController();
             </div>
 
             <div>
-                <a href="condutor.html" style="float:left;"><button class="btn btn-success"><i class="fas fa-plus"></i> Novo</button></a>
+                <a href="add-condutor.php" style="float:left;"><button class="btn btn-success"><i class="fas fa-plus"></i> Novo</button></a>
             </div>
 
             <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
@@ -70,6 +69,5 @@ $bean = new CondutorController();
 </main>
 
 <?php
-/* @var Database $db */
 require "footer.php";
 ?>

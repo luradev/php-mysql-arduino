@@ -20,14 +20,15 @@
 
 <body>
 <nav class="navbar navbar-dark navbar-expand-lg bg-white portfolio-navbar gradient">
-    <div class="container"><a class="navbar-brand logo" href="#"> <i class="fa fa-car"></i>  Accident-Track<br /></a><button data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container"><a class="navbar-brand logo" href="index.php"> <i class="fa fa-car"></i>  <strong>Accident-Track</strong><br /></a><button data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="veiculo.html">Registrar Veículo</a></li>
-                <li class="nav-item"><a class="nav-link" href="condutor.html">Registrar Condutor</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="veiculos.php">Veículo</a></li>
+                <li class="nav-item"><a class="nav-link" href="condutores.php">Condutor</a></li>
                 <li class="nav-item"><a class="nav-link" href="acidentes.html">Acidentes</a></li>
                 <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="acidentes.html"><i class="fa fa-bell"></i></a></li>
             </ul>
         </div>
     </div>
