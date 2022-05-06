@@ -28,8 +28,30 @@
                 <li class="nav-item"><a class="nav-link" href="condutores.php">Condutor</a></li>
                 <li class="nav-item"><a class="nav-link" href="acidentes.html">Acidentes</a></li>
                 <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="acidentes.html"><i class="fa fa-bell"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="acidentes.html"><i class="fa fa-bell" id="noti_number"></i></a></li>
             </ul>
         </div>
     </div>
 </nav>
+
+
+<script type="text/javascript">
+ function loadDoc() {
+  
+  setInterval(function(){
+
+   var xhttp = new XMLHttpRequest();
+   xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("noti_number").innerHTML = this.responseText;
+    }
+   };
+   xhttp.open("GET", "dao/notification_data.php", true);
+   xhttp.send();
+
+  },1000);
+
+
+ }
+ loadDoc();
+</script>
