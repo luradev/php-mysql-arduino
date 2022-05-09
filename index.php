@@ -23,7 +23,10 @@ require "header.php";
     <section class="portfolio-block call-to-action border-bottom">
         <div class="container">
             <div class="d-flex justify-content-center align-items-center content">
-                <h3>O seu veículo ainda não foi registrado?</h3><button class="btn btn-outline-primary btn-lg" href="veiculo.html" type="button">Registre</button>
+                <h3>O seu veículo ainda não foi registrado?</h3>
+                <a href="add-veiculo.php">
+                    <button class="btn btn-outline-primary btn-lg" href="veiculo.html" type="button">Registre</button>
+                </a>
             </div>
         </div>
     </section>
@@ -70,7 +73,7 @@ require "header.php";
             <h2 class="text-center" style="color: var(--bs-white);"></h2>
             <p class="text-center"></p>
         </div>
-        <div class="buttons"><a class="btn btn-primary" role="button" href="dashboard.html" style="font-size: 16px;">CONSULTAR</a></div>
+        <div class="buttons"><a class="btn btn-primary" role="button" href="dashboard.php" style="font-size: 16px;">CONSULTAR</a></div>
     </div>
 </section>
 <section class="portfolio-block projects-cards">

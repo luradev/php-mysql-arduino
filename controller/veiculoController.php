@@ -30,9 +30,10 @@ class VeiculoController {
 		$veiculo->setCondutor($_POST['condutor']);
 		$veiculo->setCombustivel($_POST['combustivel']);
 		$veiculo->setLotacao($_POST['lotacao']);
+        $veiculo->setIotsinistro($_POST['esp32']);
 						
         if($this->veiculoDao->salvar($veiculo)) {
-            echo "<script>alert('Registro incluído com sucesso!');document.location='../add-veiculo.php'</script>";
+            echo "<script>alert('Registro incluído com sucesso!');document.location='../veiculos.php'</script>";
         }else{
             echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
         }
@@ -75,14 +76,21 @@ class VeiculoController {
 
     public function update() {
 
-        $condutor = new Condutor();
-        $condutor->setPk($_POST['id']);
-        $condutor->setNome($_POST['nome']);
-        $condutor->setDataNascimento($_POST['data_nascimento']);
-        $condutor->setSexo($_POST['sexo']);
-        $condutor->setNumBI($_POST['num_bi']);
-        if($this->pessoaDao->update($condutor)) {
-            echo "<script>alert('Registro editado com sucesso!');document.location='../view/index.php'</script>";
+        $veiculo = new Veiculo();
+        $veiculo->setPk($_POST['pk_veiculo']);
+        $veiculo->setModelo($_POST['modelo']);
+        $veiculo->setMatricula($_POST['matricula']);
+        $veiculo->setNumMotor($_POST['num_motor']);
+        $veiculo->setNumQuadro($_POST['num_quadro']);
+        $veiculo->setCor($_POST['cor']);				
+		
+		$veiculo->setCondutor($_POST['condutor']);
+		$veiculo->setCombustivel($_POST['combustivel']);
+		$veiculo->setLotacao($_POST['lotacao']);
+        $veiculo->setIotsinistro($_POST['esp32']);
+
+        if($this->veiculoDao->update($veiculo)) {
+            echo "<script>alert('Registro editado com sucesso!');document.location='../veiculos.php'</script>";
         }else{
             echo "<script>alert('Erro ao atualizar registro!');history.back()</script>";
         }

@@ -2,6 +2,7 @@
 
 class Veiculo {
     
+    private $pk;
     private $matricula;
     private $num_motor;
     private $num_quadro;
@@ -18,7 +19,16 @@ class Veiculo {
 	private $combustivel;
 	private $modelo;
 	private $lotacao;
+    private $iotsinistro;
 	
+
+    public function setPk($pk) {
+        $this->pk = $pk;
+    } 
+
+    public function getPk() {
+        return $this->pk;
+    }
 
     public function setMatricula($matricula) {
         $this->matricula = $matricula;
@@ -82,6 +92,14 @@ class Veiculo {
 
     public function getLotacao() {
         return $this->lotacao;
+    }
+
+    public function setIotsinistro($iotsinistro) {
+        $this->iotsinistro = $iotsinistro;
+    } 
+
+    public function getIotsinistro() {
+        return $this->iotsinistro;
     }
 }
 

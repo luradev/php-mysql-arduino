@@ -4,11 +4,13 @@
 	require_once("controller/marcaController.php");
 	require_once("controller/corController.php");
     require_once("controller/veiculoController.php");
+    require_once("controller/iotController.php");
 	
 	$ct_marca = new MarcaController();
 	$ct_condutor = new CondutorController();
 	$ct_cor = new CorController();
     $ct_veiculo = new VeiculoController();
+    $ct_iot = new IotController();
 ?>
 
 
@@ -24,7 +26,9 @@
                 <form method="post" action="controller/veiculoController.php?action=update">
                     <div class="mb-3">
                         <div class="row">
+                        <input type="hidden" value="<?php echo $veiculo['pk_veiculo'] ?>" name="pk_veiculo" />
                             <div class="col-md-6"><label class="form-label" for="hire-date">Marca</label>
+                                
 								<select class="form-select" name="marca" id="marca-dropdown">
                                     <option value="">Selecione a marca</option>
 									<?php 
@@ -46,7 +50,7 @@
                     </div>
                     <div class="mb-3"><label class="form-label" for="matricula">Matrícula</label><input value="<?php echo $veiculo['matricula'] ?>" class="form-control" type="text" name="matricula" id="matricula"></div>
                     <div class="mb-3"><label class="form-label" for="num_motor">Nº do Motor</label><input value="<?php echo $veiculo['num_motor'] ?>" class="form-control" type="text" name="num_motor" id="num_motor"></div>
-                    <div class="mb-3"><label class="form-label" for="num_quadro">Nº do Quadro</label><input value="<?php echo $veiculo['num_motor'] ?>" class="form-control" type="text" name="num_quadro" id="num_quadro"></div>
+                    <div class="mb-3"><label class="form-label" for="num_quadro">Nº do Quadro</label><input value="<?php echo $veiculo['num_quadro'] ?>" class="form-control" type="text" name="num_quadro" id="num_quadro"></div>
                     <div class="mb-3"><label class="form-label" for="cor">Cor</label><select class="form-select" name="cor" id="cor">
                             <optgroup label="Selecione a cor">
 							<?php
@@ -78,6 +82,19 @@
                             <div class="col-md-6 button"><label class="form-label">Lotação</label><input value="<?php echo $veiculo['lotacao'] ?>" class="form-control" type="text" name="lotacao" id="lotacao"></div>
                         </div>
                     </div>
+
+                    <div class="mb-3"><label class="form-label" for="esp32">Esp32</label><select class="form-select" name="esp32" id="esp32">
+                            <optgroup label="Selecione o dispositivo">
+                                <!-- <option value="1" selected="">João</option> -->                                
+							<?php 
+								$iots = $ct_iot->listar();
+								foreach ($iots as $iot) : ?>
+									<option value="<?php echo $iot['id']; ?>"><?php echo $iot['id']; ?></option>
+                            <?php endforeach; ?>
+                            </optgroup>
+                        </select>
+                    </div>
+
                     <!--
 					<div class="mb-3"><label class="form-label" for="message">Data de Emissão</label><input class="form-control" id="data_emissao" type="date"></div>
                     -->

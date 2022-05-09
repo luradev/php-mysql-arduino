@@ -24,7 +24,7 @@ class CondutorController {
         $condutor->setSexo($_POST['sexo']);
         $condutor->setNumBI($_POST['num_bi']);
         if($this->condutorDao->salvar($condutor)) {
-            echo "<script>alert('Registro incluído com sucesso!');document.location='../condutor.html'</script>";
+            echo "<script>alert('Registro incluído com sucesso!');document.location='../condutores.php'</script>";
         }else{
             echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
         }
@@ -54,7 +54,7 @@ class CondutorController {
 
     public function deletar($id) {
         $this->condutorDao->deletar($id);
-        echo "<script>alert('Registro deletado com sucesso!');document.location='lista-condutores.php'</script>";
+        echo "<script>alert('Registro deletado com sucesso!');document.location='condutores.php'</script>";
     }
 
     public function getByPk($id) {
@@ -65,13 +65,13 @@ class CondutorController {
     public function update() {
 
         $condutor = new Condutor();
-        $condutor->setPk($_POST['id']);
+        $condutor->setPk($_POST['pk_condutor']);
         $condutor->setNome($_POST['nome']);
         $condutor->setDataNascimento($_POST['data_nascimento']);
         $condutor->setSexo($_POST['sexo']);
         $condutor->setNumBI($_POST['num_bi']);
-        if($this->pessoaDao->update($condutor)) {
-            echo "<script>alert('Registro editado com sucesso!');document.location='../view/index.php'</script>";
+        if($this->condutorDao->update($condutor)) {
+            echo "<script>alert('Registro editado com sucesso!');document.location='../condutores.php'</script>";
         }else{
             echo "<script>alert('Erro ao atualizar registro!');history.back()</script>";
         }

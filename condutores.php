@@ -46,13 +46,10 @@ $bean = new CondutorController();
                                         </button>
                                     </a>
                                     -->
-                                    <a href="edit-condutor.php?pkCondutor=<?php echo $condutor['pk_condutor'] ?>" style="float:left;"><button class="btn btn-primary"><i class="fa fa-pencil"></i></button></a>
-
+                                    <a href="edit-condutor.php?pkCondutor=<?php echo $condutor['pk_condutor'] ?>" style="float:left;"> <i class="fa fa-edit"></i> </a>
+                                     |
                                     <a href="lista-condutores.php?action=excluir&id=<?php echo $condutor['pk_condutor'] ?>" onclick="confirm('Desejas realmente eliminar este registo?')">
-                                        <button class="btn btn-danger">
-                                            <i class="fa fa-minus" aria-hidden="true"></i>
-                                        </button>
-                                    </a>
+                                        <i class="fa fa-trash" aria-hidden="true"></i></a>
 
                                 </td>
                             </tr>

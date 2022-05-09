@@ -11,9 +11,11 @@ class VeiculoDAO {
     }
 
     public function salvar($veiculo) {
+        
+        $query = "INSERT INTO veiculo (matricula, num_motor, num_quadro, cor, fk_condutor, combustivel, lotacao, fk_modelo, fk_iotsinistro)
+        VALUES (?,?,?,?,?,?,?,?,?)";
 
-        $stmt = $this->mysqli->prepare("INSERT INTO veiculo (matricula, num_motor, num_quadro, cor, fk_condutor, combustivel, lotacao, fk_modelo)
-                                        VALUES (?,?,?,?,?,?,?,?)"); 
+        $stmt = $this->mysqli->prepare($query); 
         
         if($stmt == FALSE) 
 			printf("Error: %s.\n", $this->mysqli->error);
@@ -26,25 +28,33 @@ class VeiculoDAO {
 			$combustivel = $veiculo->getCombustivel();
 			$lotacao = $veiculo->getLotacao();
 			$modelo = $veiculo->getModelo();
-            $stmt->bind_param('ssssssii', $matricula, $num_motor, $num_quadro, $cor, $condutor, $combustivel, $lotacao, $modelo);
+            $iotsinistro = $veiculo->getIotsinistro();
+            $stmt->bind_param('ssssssiii', $matricula, $num_motor, $num_quadro, $cor, $condutor, $combustivel, $lotacao, $modelo, $iotsinistro);
             return $stmt->execute();
         }
     }
 
-    public function update($condutor) {
+    public function update($veiculo) {
 
-        $stmt = $this->mysqli->prepare("UPDATE condutor SET nome = ?, data_nascimento = ? , num_bi = ?, sexo = ?
-                                        WHERE pk_condutor = ?");
+        $query = "UPDATE veiculo SET matricula = ?, num_motor = ? , num_quadro = ?, cor = ?, combustivel = ?, lotacao = ?, fk_modelo = ?, fk_iotsinistro = ?
+        WHERE pk_condutor = ?";
+        
+        $stmt = $this->mysqli->prepare($query);
         
         if($stmt == FALSE) printf("Error: %s.\n", $this->mysqli->error);
         else {
-            $nome = $condutor->getNome();
-            $data_nascimento = $condutor->getDataNascimento();
-            $num_bi = $condutor->getNumBI();
-            $sexo = $condutor->getSexo();
-            $id = $condutor->getPk();
-            echo $id . '';
-            $stmt->bind_param('ssssi', $nome, $data_nascimento, $num_bi, $sexo, $id);
+            $matricula = $veiculo->getMatricula();
+            $num_motor = $veiculo->getNumMotor();
+            $num_quadro = $veiculo->getNumQuadro();
+            $cor = $veiculo->getCor();
+			$condutor = $veiculo->getCondutor();
+			$combustivel = $veiculo->getCombustivel();
+			$lotacao = $veiculo->getLotacao();
+			$modelo = $veiculo->getModelo();
+            $iotsinistro = $veiculo->getIotsinistro();
+            $id = $veiculo->getPk();
+            //echo $id . '';
+            $stmt->bind_param('sssssiiiii', $matricula, $num_motor, $num_quadro, $cor, $combustivel, $lotacao, $condutor, $modelo, $iotsinistro, $id);
             return $stmt->execute();
         }
     }

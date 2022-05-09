@@ -12,8 +12,8 @@ require "header.php";
                 <div class="mb-3"><label class="form-label" for="email">Nome</label><input class="form-control" type="text" name="nome" id="nome"></div>
                 <div class="mb-3"><label class="form-label" for="email">Sexo</label><select class="form-select" name="sexo" id="sexo">
                         <optgroup label="Selecione o gênero">
-                            <option value="M" selected="">Masculino</option>
-                            <option value="F">Feminino</option>
+                            <option value="Masculino" selected="">Masculino</option>
+                            <option value="Feminino">Feminino</option>
                         </optgroup>
                     </select></div>
                 <div class="mb-3"><label class="form-label" for="message">Data de Nascimento</label><input class="form-control" name="data_nascimento" id="data_nascimento" type="date"></div>

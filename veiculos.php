@@ -41,17 +41,13 @@ $bean = new VeiculoController();
                                 <td><?php echo $veiculo['condutor_nome']; ?></td>
                                 <td>
 
-                                    <a href="edit-veiculo.php?pkVeiculo=<?php echo $veiculo['pk_veiculo'] ?>">
-                                        <button class="btn btn-primary mr-2">
-                                            <i class="fa fa-pencil text-white" aria-hidden="true"></i>
-                                        </button>
-                                    </a>
-
-
+                                    <a href="edit-veiculo.php?pkVeiculo=<?php echo $veiculo['pk_veiculo'] ?>">                                        
+                                        <i class="fa fa-edit" aria-hidden="true"></i>  </a>
+                                        |
                                     <a href="veiculos.php?action=excluir&id=<?php echo $veiculo['pk_veiculo'] ?>" onclick="confirm('Desejas realmente eliminar este registo?')">
-                                        <button class="btn btn-danger">
-                                            <i class="fa fa-minus" aria-hidden="true"></i>
-                                        </button>
+                                        
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        
                                     </a>
 
                                 </td>

@@ -3,10 +3,12 @@
 	require_once("controller/condutorController.php");
 	require_once("controller/marcaController.php");
 	require_once("controller/corController.php");
+    require_once("controller/iotController.php");
 	
 	$ct_marca = new MarcaController();
 	$ct_condutor = new CondutorController();
 	$ct_cor = new CorController();
+    $ct_iot = new IotController();
 ?>
 
 
@@ -60,7 +62,8 @@
 									<option value="<?php echo $condutor['pk_condutor']; ?>"><?php echo $condutor['nome']; ?></option>
                             <?php endforeach; ?>
                             </optgroup>
-                        </select></div>
+                        </select>
+                    </div>
                     
                     <div class="mb-3">
                         <div class="row">
@@ -73,6 +76,19 @@
                             <div class="col-md-6 button"><label class="form-label">Lotação</label><input class="form-control" type="text" name="lotacao" id="lotacao"></div>
                         </div>
                     </div>
+                    
+                    <div class="mb-3"><label class="form-label" for="esp32">Esp32</label><select class="form-select" name="esp32" id="esp32">
+                            <optgroup label="Selecione o dispositivo">
+                                <!-- <option value="1" selected="">João</option> -->                                
+							<?php 
+								$iots = $ct_iot->listar();
+								foreach ($iots as $iot) : ?>
+									<option value="<?php echo $iot['id']; ?>"><?php echo $iot['id']; ?></option>
+                            <?php endforeach; ?>
+                            </optgroup>
+                        </select>
+                    </div>
+
                     <!--
 					<div class="mb-3"><label class="form-label" for="message">Data de Emissão</label><input class="form-control" id="data_emissao" type="date"></div>
                     -->
